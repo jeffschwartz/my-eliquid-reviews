@@ -21,7 +21,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "webpack && webpack-dev-server --inline --hot --content-base src/client/public/",
+    "start": "webpack && webpack-dev-server --inline --hot --host 0.0.0.0 --content-base src/client/public/",
     "build": "webpack"
   },
   "dependencies": {
