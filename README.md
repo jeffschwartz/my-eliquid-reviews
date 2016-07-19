@@ -1,5 +1,2 @@
-# React Quick Start
-## Includes:
-* Webpack
-* Babel
-* ESLint
+# My Eliquid Reviews
+## A React based web app for organinzing eliquid reviews
