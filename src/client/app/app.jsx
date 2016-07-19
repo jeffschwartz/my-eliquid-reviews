@@ -7,7 +7,7 @@ export class App extends React.Component {
         return (
             <div>
                 <h1>Eliquid</h1>
-                <EliquidList />
+                <EliquidList defaultOrder="name,a" />
             </div>
         );
     }

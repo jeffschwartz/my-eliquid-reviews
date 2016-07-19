@@ -1,18 +1,19 @@
 import React from "react";
 
 export default class EliquidListHeader extends React.Component {
-    constructor () {
-        super();
+    constructor (props) {
+        super(props);
         this.state = {
-            selectedOption: "name"
+            selectedOption: this.props.defaultOrder
         };
         this.handleAddButtonClick = this.handleAddButtonClick.bind(this);
         this.handleOptionsChange = this.handleOptionsChange.bind(this);
     }
     handleOptionsChange (e) {
-        console.log(e.target.value);
         this.setState({selectedOption: e.target.value},
             () => console.log("this.state.selectedOption changed. Now = ", this.state.selectedOption));
+        // call owning component's handler
+        this.props.orderByChangedHandler(e.target.value);
     }
     handleAddButtonClick (e) {
         console.log("add button clicked");
@@ -41,10 +42,13 @@ export default class EliquidListHeader extends React.Component {
                 <h1 style={headerStyle}>Eliquids</h1>
                 <div style={buttonContainerStyle}>
                     <span>order by: </span>
-                    <select onChange={this.handleOptionsChange} defaultValue="name">
-                        <option value="name">name</option>
-                        <option value="category">category</option>
-                        <option value="rating">rating</option>
+                    <select onChange={this.handleOptionsChange} defaultValue={this.props.defaultOrder}>
+                        <option value="name,a">name - ascending</option>
+                        <option value="name,d">name - descending</option>
+                        <option value="category,a">category - ascending</option>
+                        <option value="category,d">category - descending</option>
+                        <option value="rating,a">rating - ascending</option>
+                        <option value="rating,d">rating - descending</option>
                     </select>
                     <button style={addButtonStyle} onClick={this.handleAddButtonClick}>Add Eliquid</button>
                 </div>
