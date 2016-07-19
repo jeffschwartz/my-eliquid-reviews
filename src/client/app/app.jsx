@@ -6,7 +6,7 @@ export class App extends React.Component {
     render () {
         return (
             <div>
-                <h1>Eliquid</h1>
+                <h1>My Eliquid Reviews</h1>
                 <EliquidList defaultOrder="name,a" />
             </div>
         );
