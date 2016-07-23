@@ -1,3 +1,5 @@
+import {browserHistory} from "react-router";
+
 const EliquidListHeader = (props) => {
     let headerContainerStyle = {
         minHeight: "2em",
@@ -22,7 +24,7 @@ const EliquidListHeader = (props) => {
         props.orderByChangedHandler(e.target.value);
     };
     let handleAddButtonClick = (e) => {
-        console.log("add button clicked");
+        browserHistory.push("/eliquid/create");
     };
     return (
         <div style={headerContainerStyle}>
