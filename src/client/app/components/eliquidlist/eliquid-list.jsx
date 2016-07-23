@@ -9,19 +9,23 @@ export default class EliquidList extends React.Component {
         this.handleOrderByChange = this.handleOrderByChange.bind(this);
         this.state = {
             eliquids: [],
-            defaultOrder: this.props.defaultOrder
+            defaultOrder: this.props.defaultOrder,
+            didRender: false
         };
     }
     componentDidMount () {
-        eliquidService.getAll().then(eliquids => {
+        eliquidService.get().then(eliquids => {
             // this.setState({eliquids: eliquids});
             // console.log("componentWillMount - eliquids", this.state.eliquids);
             this.setState({eliquids: eliquids});
-            console.log("componentWillMount - eliquids", this.eliquids);
         });
     }
+    // componentDidUpdate () {
+    //     console.log("componentDidUpdate", this.state.eliquids);
+    //     console.log("component did render", this.state.didRender);
+    // }
     handleOrderByChange (orderBy) {
-        console.log("handleOrderByChange called", orderBy);
+        // console.log("handleOrderByChange called", orderBy);
         this.setState({defaultOrder: orderBy});
     }
     render () {

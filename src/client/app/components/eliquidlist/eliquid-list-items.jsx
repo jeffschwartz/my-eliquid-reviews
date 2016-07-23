@@ -1,5 +1,10 @@
+import {browserHistory} from "react-router";
+
 const EliquidListItems = (props) => {
-    console.log("rendering");
+    function rowClickedHandler (e, id) {
+        let url = "/eliquid/" + id;
+        browserHistory.push(url);
+    }
     props.eliquids.sort((a, b) => {
         let sortArgs = props.orderBy.split(",");
         let sortOn = sortArgs[0];
@@ -22,7 +27,7 @@ const EliquidListItems = (props) => {
             return 0;
         }
     });
-    let rows = props.eliquids.map((item, i) => <tr key={i}><td>{item.name}</td><td>{item.company}</td><td>{item.category}</td><td>{item.rating}</td><td>{item.vgpg}</td><td>{item.nic}</td></tr>);
+    let rows = props.eliquids.map((item, i) => <tr id={item.id} style={{cursor: "pointer"}} onClick={(e) => rowClickedHandler(e, item.id)} key={i}><td>{item.name}</td><td>{item.company}</td><td>{item.category}</td><td>{item.rating}</td><td>{item.vgpg}</td><td>{item.nic}</td></tr>);
     return (
         <div style={{width: "100%"}}>
             <table style={{width: "100%"}}>

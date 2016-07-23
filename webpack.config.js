@@ -5,7 +5,7 @@ var BUILD_DIR = path.resolve(__dirname, "src/client/public");
 var APP_DIR = path.resolve(__dirname, "src/client/app");
 
 module.exports = {
-    entry: APP_DIR + "/app.jsx",
+    entry: APP_DIR + "/index.jsx",
     output: {
         path: BUILD_DIR,
         filename: "app.bundle.js"
@@ -31,7 +31,7 @@ module.exports = {
     // (e.g. stateless component functions)
     plugins: [
         new webpack.ProvidePlugin({
-            "React": "react",
+            "React": "react"
         })
     ]
 };

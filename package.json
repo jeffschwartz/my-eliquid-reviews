@@ -21,13 +21,14 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "webpack && webpack-dev-server --inline --hot --host 0.0.0.0 --content-base src/client/public/",
+    "start": "webpack && webpack-dev-server --inline --hot --host 0.0.0.0 --content-base src/client/public/ --history-api-fallback",
     "build": "webpack"
   },
   "dependencies": {
     "babel-polyfill": "^6.9.1",
     "react": "^15.2.1",
-    "react-dom": "^15.2.1"
+    "react-dom": "^15.2.1",
+    "react-router": "^2.6.0"
   },
   "devDependencies": {
     "babel-core": "^6.10.4",
