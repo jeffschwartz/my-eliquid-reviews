@@ -5,7 +5,7 @@ const EliquidListItems = (props) => {
         let url = "/eliquid/" + id;
         browserHistory.push(url);
     }
-    props.eliquids.sort((a, b) => {
+    props.eLiquids.sort((a, b) => {
         let sortArgs = props.orderBy.split(",");
         let sortOn = sortArgs[0];
         let sortAscending = sortArgs[1] === "a";
@@ -27,16 +27,30 @@ const EliquidListItems = (props) => {
             return 0;
         }
     });
-    let rows = props.eliquids.map((item, i) => <tr id={item.id} style={{cursor: "pointer"}} onClick={(e) => rowClickedHandler(e, item.id)} key={i}><td>{item.name}</td><td>{item.company}</td><td>{item.category}</td><td>{item.rating}</td><td>{item.vgpg}</td><td>{item.nic}</td></tr>);
+    let rows = props.eLiquids.map((item, i) =>
+        <tr id={item.id} className="list__item" onClick={(e) => rowClickedHandler(e, item.id)} key={i}>
+            <td className="list__item-detail">{item.name}</td>
+            <td className="list__item-detail">{item.company}</td>
+            <td className="list__item-detail">{item.category}</td>
+            <td className="list__item-detail">{item.rating}</td>
+            <td className="list__item-detail">{item.vgpg}</td>
+            <td className="list__item-detail">{item.nic}</td>
+        </tr>);
     return (
-        <div style={{width: "100%"}}>
-            <table style={{width: "100%"}}>
-                <thead><tr><th style={{textAlign: "left"}}>Name</th><th style={{textAlign: "left"}}>Company</th><th style={{textAlign: "left"}}>Category</th><th style={{textAlign: "left"}}>Rating</th><th style={{textAlign: "left"}}>VG/PG</th><th style={{textAlign: "left"}}>Nic</th></tr></thead>
-                <tbody>
-                    {rows}
-                </tbody>
-            </table>
-        </div>
+        <table className="list__items-container">
+            <thead>
+                <tr>
+                    <th className="list__items-header list__items-header--green">Name</th>
+                    <th className="list__items-header list__items-header--green">Company</th>
+                    <th className="list__items-header list__items-header--green">Category</th>
+                    <th className="list__items-header list__items-header--green">Rating</th>
+                    <th className="list__items-header list__items-header--green">VG/PG</th>
+                    <th className="list__items-header list__items-header--green">Nic</th></tr>
+            </thead>
+            <tbody>
+                {rows}
+            </tbody>
+        </table>
     );
 };
 
