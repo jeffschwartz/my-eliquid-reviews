@@ -1,24 +1,6 @@
 import {browserHistory} from "react-router";
 
 const EliquidListHeader = (props) => {
-    let headerContainerStyle = {
-        minHeight: "2em",
-        lineHeight: "2em",
-        padding: "0 10px",
-        borderBottom: "solid 1px #000",
-        overflow: "hidden"
-    };
-    let headerStyle = {
-        display: "inline-block",
-        margin: "0 20px 0 0",
-        fontSize: "2em"
-    };
-    let buttonContainerStyle = {
-        display: "inline-block"
-    };
-    let addButtonStyle = {
-        marginLeft: "20px"
-    };
     let handleOptionsChange = (e) => {
         // call owning component's handler
         props.orderByChangedHandler(e.target.value);
@@ -27,9 +9,9 @@ const EliquidListHeader = (props) => {
         browserHistory.push("/eliquid/create");
     };
     return (
-        <div style={headerContainerStyle}>
-            <h1 style={headerStyle}>Eliquids</h1>
-            <div style={buttonContainerStyle}>
+        <div className="list__header-container">
+            <h1 className="list__header">Eliquids</h1>
+            <div className="list__header-button-container">
                 <span>order by: </span>
                 <select onChange={handleOptionsChange} defaultValue={props.defaultOrder}>
                     <option value="name,a">name - ascending</option>
@@ -39,7 +21,7 @@ const EliquidListHeader = (props) => {
                     <option value="rating,a">rating - ascending</option>
                     <option value="rating,d">rating - descending</option>
                 </select>
-                <button style={addButtonStyle} onClick={handleAddButtonClick}>Add Eliquid</button>
+                <button className="list__header-button" onClick={handleAddButtonClick}>Add Eliquid</button>
             </div>
         </div>
     );

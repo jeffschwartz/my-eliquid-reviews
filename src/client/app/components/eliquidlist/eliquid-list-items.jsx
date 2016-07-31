@@ -27,16 +27,30 @@ const EliquidListItems = (props) => {
             return 0;
         }
     });
-    let rows = props.eLiquids.map((item, i) => <tr id={item.id} style={{cursor: "pointer"}} onClick={(e) => rowClickedHandler(e, item.id)} key={i}><td>{item.name}</td><td>{item.company}</td><td>{item.category}</td><td>{item.rating}</td><td>{item.vgpg}</td><td>{item.nic}</td></tr>);
+    let rows = props.eLiquids.map((item, i) =>
+        <tr id={item.id} className="list__item" onClick={(e) => rowClickedHandler(e, item.id)} key={i}>
+            <td className="list__item-detail">{item.name}</td>
+            <td className="list__item-detail">{item.company}</td>
+            <td className="list__item-detail">{item.category}</td>
+            <td className="list__item-detail">{item.rating}</td>
+            <td className="list__item-detail">{item.vgpg}</td>
+            <td className="list__item-detail">{item.nic}</td>
+        </tr>);
     return (
-        <div style={{width: "100%"}}>
-            <table style={{width: "100%"}}>
-                <thead><tr><th style={{textAlign: "left"}}>Name</th><th style={{textAlign: "left"}}>Company</th><th style={{textAlign: "left"}}>Category</th><th style={{textAlign: "left"}}>Rating</th><th style={{textAlign: "left"}}>VG/PG</th><th style={{textAlign: "left"}}>Nic</th></tr></thead>
-                <tbody>
-                    {rows}
-                </tbody>
-            </table>
-        </div>
+        <table className="list__items-container">
+            <thead>
+                <tr>
+                    <th className="list__items-header">Name</th>
+                    <th className="list__items-header">Company</th>
+                    <th className="list__items-header">Category</th>
+                    <th className="list__items-header">Rating</th>
+                    <th className="list__items-header">VG/PG</th>
+                    <th className="list__items-header">Nic</th></tr>
+            </thead>
+            <tbody>
+                {rows}
+            </tbody>
+        </table>
     );
 };
 

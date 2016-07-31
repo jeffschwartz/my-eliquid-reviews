@@ -1,0 +1,47 @@
+.nav {
+    text-decoration: none;
+}
+
+.nav--active {
+    color: #0f0;
+}
+
+.list {
+    border-top: solid 1px #000;
+    padding: 10px;
+}
+
+.list__header-container {
+    min-height: 2em;
+    line-height: 2em;
+    padding: 0 10px;
+    border-bottom: solid 1px #000;
+    overflow: hidden;
+}
+
+.list__header {
+    display: inline-block;
+    margin: 0 20px 0 0;
+    font-size: 2em;
+}
+
+.list__header-button-container {
+    display: inline-block;
+}
+
+.list__header-button {
+    margin-left: 20px;
+}
+
+.list__items-container {
+    width: 100%;
+}
+.list__items-header {
+    text-align: left;
+}
+.list__item {
+    cursor: pointer;
+}
+.list__item-detail {
+    color: green;
+}
