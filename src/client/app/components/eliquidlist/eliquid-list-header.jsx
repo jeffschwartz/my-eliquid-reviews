@@ -1,12 +1,10 @@
-import {browserHistory} from "react-router";
-
 const EliquidListHeader = (props) => {
     let handleOptionsChange = (e) => {
         // call owning component's handler
         props.orderByChangedHandler(e.target.value);
     };
     let handleAddButtonClick = (e) => {
-        browserHistory.push("/eliquid/create");
+        props.addButtonClickHandler(e);
     };
     return (
         <div className="list__header-container">
