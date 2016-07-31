@@ -4,9 +4,7 @@ import eliquidService from "../../services/eliquid-service";
 class EliquidDetail extends React.Component {
     render () {
         let propValue = this.props.propValue;
-        console.log("EliquidDetail propValue", propValue);
         let label = this.props.label;
-        console.log("EliquidDetail label", label);
         return (
             <div>
                 <span>{label}: </span><span>{propValue}</span>
@@ -23,15 +21,11 @@ export default class EliquidDetails extends React.Component {
         };
     }
     componentDidMount () {
-        console.log("componentDidMount", this.props.params.id);
         eliquidService.getById(parseInt(this.props.params.id)).then((eliquid) => {
-            console.log("componentDidMount", eliquid);
             this.setState({eliquid: eliquid});
         });
     }
     render () {
-        console.log("render ()", this.props);
-        console.log("render ()", this.state);
         // don't render until eliquidService.getById has resolved
         if (!this.state.eliquid) {
             return false;

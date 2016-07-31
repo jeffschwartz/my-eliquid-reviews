@@ -13,7 +13,6 @@ export default class EliquidList extends React.Component {
         };
     }
     handleOrderByChange (orderBy) {
-        console.log("handleOrderByChange called", orderBy);
         this.setState({defaultOrder: orderBy});
     }
     render () {
@@ -21,7 +20,6 @@ export default class EliquidList extends React.Component {
             borderTop: "solid 1px #000",
             padding: "10px"
         };
-        console.log("eliquidlist render called this.props", this.props);
         return (
             <div style={containerStyle}>
                 <EliquidListHeader

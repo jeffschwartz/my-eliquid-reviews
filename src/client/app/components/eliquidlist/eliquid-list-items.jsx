@@ -5,7 +5,6 @@ const EliquidListItems = (props) => {
         let url = "/eliquid/" + id;
         browserHistory.push(url);
     }
-    console.log("EliquidListItems props", props);
     props.eLiquids.sort((a, b) => {
         let sortArgs = props.orderBy.split(",");
         let sortOn = sortArgs[0];
