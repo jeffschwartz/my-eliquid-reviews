@@ -26,7 +26,7 @@ export function eLiquidsFailure (error) {
 export function bootstrapEliquids () {
     return function (dispatch) {
         dispatch(eLiquidsIsFetching(true));
-        eliquidService.get().then(
+        return eliquidService.get().then(
             result => {
                 dispatch(eLiquidsSuccess(result));
                 dispatch(eLiquidsIsFetching(false));

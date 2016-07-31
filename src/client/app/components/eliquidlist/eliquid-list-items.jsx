@@ -1,32 +1,9 @@
-import {browserHistory} from "react-router";
-
 const EliquidListItems = (props) => {
     function rowClickedHandler (e, id) {
-        let url = "/eliquid/" + id;
-        browserHistory.push(url);
+        props.listItemClickHandler(e, id);
     }
-    props.eLiquids.sort((a, b) => {
-        let sortArgs = props.orderBy.split(",");
-        let sortOn = sortArgs[0];
-        let sortAscending = sortArgs[1] === "a";
-        if (sortAscending) {
-            if (a[sortOn] < b[sortOn]) {
-                return -1;
-            }
-            if (a[sortOn] > b[sortOn]) {
-                return 1;
-            }
-            return 0;
-        } else {
-            if (a[sortOn] > b[sortOn]) {
-                return -1;
-            }
-            if (a[sortOn] < b[sortOn]) {
-                return 1;
-            }
-            return 0;
-        }
-    });
+
+    // let rows = props.eLiquids.map((item, i) =>
     let rows = props.eLiquids.map((item, i) =>
         <tr id={item.id} className="list__item" onClick={(e) => rowClickedHandler(e, item.id)} key={i}>
             <td className="list__item-detail">{item.name}</td>
