@@ -40,12 +40,12 @@ const EliquidListItems = (props) => {
         <table className="list__items-container">
             <thead>
                 <tr>
-                    <th className="list__items-header">Name</th>
-                    <th className="list__items-header">Company</th>
-                    <th className="list__items-header">Category</th>
-                    <th className="list__items-header">Rating</th>
-                    <th className="list__items-header">VG/PG</th>
-                    <th className="list__items-header">Nic</th></tr>
+                    <th className="list__items-header list__items-header--green">Name</th>
+                    <th className="list__items-header list__items-header--green">Company</th>
+                    <th className="list__items-header list__items-header--green">Category</th>
+                    <th className="list__items-header list__items-header--green">Rating</th>
+                    <th className="list__items-header list__items-header--green">VG/PG</th>
+                    <th className="list__items-header list__items-header--green">Nic</th></tr>
             </thead>
             <tbody>
                 {rows}
