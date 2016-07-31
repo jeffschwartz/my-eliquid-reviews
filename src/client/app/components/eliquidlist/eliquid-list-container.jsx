@@ -56,10 +56,10 @@ class EliquidListContainer extends React.Component {
                 if (a.vgpg > b.vgpg) {
                     return sortAscending ? -1 : 1;
                 }
-                if (a.nic > b.nic) {
+                if (parseFloat(a.nic) > parseFloat(b.nic)) {
                     return sortAscending ? 1 : -1;
                 }
-                if (a.nic > b.nic) {
+                if (parseFloat(a.nic) > parseFloat(b.nic)) {
                     return sortAscending ? -1 : 1;
                 }
             });
@@ -96,10 +96,10 @@ class EliquidListContainer extends React.Component {
                 if (a.vgpg > b.vgpg) {
                     return sortAscending ? -1 : 1;
                 }
-                if (a.nic > b.nic) {
+                if (parseFloat(a.nic) > parseFloat(b.nic)) {
                     return sortAscending ? 1 : -1;
                 }
-                if (a.nic > b.nic) {
+                if (parseFloat(a.nic) > parseFloat(b.nic)) {
                     return sortAscending ? -1 : 1;
                 }
             });
@@ -136,10 +136,10 @@ class EliquidListContainer extends React.Component {
                 if (a.vgpg > b.vgpg) {
                     return sortAscending ? -1 : 1;
                 }
-                if (a.nic > b.nic) {
+                if (parseFloat(a.nic) > parseFloat(b.nic)) {
                     return sortAscending ? 1 : -1;
                 }
-                if (a.nic > b.nic) {
+                if (parseFloat(a.nic) > parseFloat(b.nic)) {
                     return sortAscending ? -1 : 1;
                 }
             });
