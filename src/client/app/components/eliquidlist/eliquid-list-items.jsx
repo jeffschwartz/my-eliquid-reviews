@@ -1,10 +1,9 @@
-const EliquidListItems = (props) => {
+const EliquidListItems = ({listItemClickHandler, eLiquids}) => {
     function rowClickedHandler (e, id) {
-        props.listItemClickHandler(e, id);
+        listItemClickHandler(e, id);
     }
 
-    // let rows = props.eLiquids.map((item, i) =>
-    let rows = props.eLiquids.map((item, i) =>
+    let rows = eLiquids.map((item, i) =>
         <tr id={item.id} className="list__item" onClick={(e) => rowClickedHandler(e, item.id)} key={i}>
             <td className="list__item-detail">{item.name}</td>
             <td className="list__item-detail">{item.company}</td>
