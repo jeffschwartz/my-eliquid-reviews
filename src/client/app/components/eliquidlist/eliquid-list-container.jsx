@@ -32,7 +32,7 @@ class EliquidListContainer extends React.Component {
                 if (a.name < b.name) {
                     return sortAscending ? -1 : 1;
                 }
-                if (a.rating > b.rating) {
+                if (parseFloat(a.rating) > parseFloat(b.rating)) {
                     return sortAscending ? 1 : -1;
                 }
                 if (parseFloat(a.rating) < parseFloat(b.rating)) {
@@ -66,7 +66,7 @@ class EliquidListContainer extends React.Component {
             break;
         case "rating":
             this.eLiquidList.sort((a, b) => {
-                if (a.rating > b.rating) {
+                if (parseFloat(a.rating) > parseFloat(b.rating)) {
                     return sortAscending ? 1 : -1;
                 }
                 if (parseFloat(a.rating) < parseFloat(b.rating)) {
@@ -118,7 +118,7 @@ class EliquidListContainer extends React.Component {
                 if (a.name < b.name) {
                     return sortAscending ? -1 : 1;
                 }
-                if (a.rating > b.rating) {
+                if (parseFloat(a.rating) > parseFloat(b.rating)) {
                     return sortAscending ? 1 : -1;
                 }
                 if (parseFloat(a.rating) < parseFloat(b.rating)) {
