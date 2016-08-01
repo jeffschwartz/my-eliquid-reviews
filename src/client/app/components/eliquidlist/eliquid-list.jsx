@@ -1,18 +1,17 @@
 import EliquidListHeader from "./eliquid-list-header";
 import EliquidListItems from "./eliquid-list-items";
 
-const EliquidList = (props) => {
-    console.log("EliquidList props", props);
+const EliquidList = ({defaultOrder, orderByChangedHandler, addButtonClickHandler, listItemClickHandler, eLiquids}) => {
     return (
         <div className="list">
             <EliquidListHeader
-                defaultOrder={props.defaultOrder}
-                orderByChangedHandler={props.orderByChangedHandler}
-                addButtonClickHandler={props.addButtonClickHandler}
+                defaultOrder={defaultOrder}
+                orderByChangedHandler={orderByChangedHandler}
+                addButtonClickHandler={addButtonClickHandler}
                  />
             <EliquidListItems
-                listItemClickHandler={props.listItemClickHandler}
-                eLiquids={props.eLiquids} />
+                listItemClickHandler={listItemClickHandler}
+                eLiquids={eLiquids} />
         </div>
     );
 };

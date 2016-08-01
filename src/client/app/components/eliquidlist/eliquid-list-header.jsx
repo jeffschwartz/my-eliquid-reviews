@@ -1,17 +1,17 @@
-const EliquidListHeader = (props) => {
+const EliquidListHeader = ({orderByChangedHandler, addButtonClickHandler, defaultOrder}) => {
     let handleOptionsChange = (e) => {
         // call owning component's handler
-        props.orderByChangedHandler(e.target.value);
+        orderByChangedHandler(e.target.value);
     };
     let handleAddButtonClick = (e) => {
-        props.addButtonClickHandler(e);
+        addButtonClickHandler(e);
     };
     return (
         <div className="list__header-container">
             <h1 className="list__header">Eliquids</h1>
             <div className="list__header-button-container">
                 <span>order by: </span>
-                <select onChange={handleOptionsChange} defaultValue={props.defaultOrder}>
+                <select onChange={handleOptionsChange} defaultValue={defaultOrder}>
                     <option value="name,a">name - ascending</option>
                     <option value="name,d">name - descending</option>
                     <option value="category,a">category - ascending</option>
