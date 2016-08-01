@@ -1,5 +1,5 @@
 import React from "react";
-import eliquidService from "../../services/eliquid-service";
+import eliquidService from "../../services/eliquid-data-service";
 
 class EliquidDetail extends React.Component {
     render () {

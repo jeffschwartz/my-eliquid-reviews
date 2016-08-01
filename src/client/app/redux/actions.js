@@ -1,4 +1,4 @@
-import eliquidService from "../services/eliquid-service";
+import eliquidService from "../services/eliquid-data-service";
 
 export function eLiquidsIsFetching (isFetching) {
     return {
