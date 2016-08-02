@@ -48,7 +48,7 @@ class EliquidService {
     }
     delete (id) {
         for (let i = 0; i < this.eliquids.length; i++) {
-            if (this.eliquids[i].id === eliquid.id) {
+            if (this.eliquids[i].id === id) {
                 this.eliquids.splice(i, 1);
                 break;
             }
@@ -58,4 +58,3 @@ class EliquidService {
 
 let eliquidService = new EliquidService();
 export default eliquidService;
-

@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import sortEliquids from "../../services/eliquid-sort-service";
 import {bootstrapEliquids} from "../../redux/actions";
 import store from "../../redux/store";
 import EliquidList from "./eliquid-list";
@@ -17,135 +18,7 @@ class EliquidListContainer extends React.Component {
         };
         this.eLiquidList = [];
     }
-    sortEliquids () {
-        let sortArgs = this.state.defaultOrder.split(",");
-        let sortOn = sortArgs[0];
-        let sortAscending = sortArgs[1] === "a";
 
-        this.eLiquidList = this.props.eLiquids.slice(0);
-        switch (sortOn) {
-        case "name":
-            this.eLiquidList.sort((a, b) => {
-                if (a.name > b.name) {
-                    return sortAscending ? 1 : -1;
-                }
-                if (a.name < b.name) {
-                    return sortAscending ? -1 : 1;
-                }
-                if (a.rating > b.rating) {
-                    return sortAscending ? 1 : -1;
-                }
-                if (parseFloat(a.rating) < parseFloat(b.rating)) {
-                    return sortAscending ? -1 : 1;
-                }
-                if (a.category > b.category) {
-                    return sortAscending ? 1 : -1;
-                }
-                if (a.category > b.category) {
-                    return sortAscending ? -1 : 1;
-                }
-                if (a.company > b.company) {
-                    return sortAscending ? 1 : -1;
-                }
-                if (a.company > b.company) {
-                    return sortAscending ? -1 : 1;
-                }
-                if (a.vgpg > b.vgpg) {
-                    return sortAscending ? 1 : -1;
-                }
-                if (a.vgpg > b.vgpg) {
-                    return sortAscending ? -1 : 1;
-                }
-                if (parseFloat(a.nic) > parseFloat(b.nic)) {
-                    return sortAscending ? 1 : -1;
-                }
-                if (parseFloat(a.nic) > parseFloat(b.nic)) {
-                    return sortAscending ? -1 : 1;
-                }
-            });
-            break;
-        case "rating":
-            this.eLiquidList.sort((a, b) => {
-                if (a.rating > b.rating) {
-                    return sortAscending ? 1 : -1;
-                }
-                if (parseFloat(a.rating) < parseFloat(b.rating)) {
-                    return sortAscending ? -1 : 1;
-                }
-                if (a.name > b.name) {
-                    return sortAscending ? 1 : -1;
-                }
-                if (a.name < b.name) {
-                    return sortAscending ? -1 : 1;
-                }
-                if (a.category > b.category) {
-                    return sortAscending ? 1 : -1;
-                }
-                if (a.category > b.category) {
-                    return sortAscending ? -1 : 1;
-                }
-                if (a.company > b.company) {
-                    return sortAscending ? 1 : -1;
-                }
-                if (a.company > b.company) {
-                    return sortAscending ? -1 : 1;
-                }
-                if (a.vgpg > b.vgpg) {
-                    return sortAscending ? 1 : -1;
-                }
-                if (a.vgpg > b.vgpg) {
-                    return sortAscending ? -1 : 1;
-                }
-                if (parseFloat(a.nic) > parseFloat(b.nic)) {
-                    return sortAscending ? 1 : -1;
-                }
-                if (parseFloat(a.nic) > parseFloat(b.nic)) {
-                    return sortAscending ? -1 : 1;
-                }
-            });
-            break;
-        case "category":
-            this.eLiquidList.sort((a, b) => {
-                if (a.category > b.category) {
-                    return sortAscending ? 1 : -1;
-                }
-                if (a.category > b.category) {
-                    return sortAscending ? -1 : 1;
-                }
-                if (a.name > b.name) {
-                    return sortAscending ? 1 : -1;
-                }
-                if (a.name < b.name) {
-                    return sortAscending ? -1 : 1;
-                }
-                if (a.rating > b.rating) {
-                    return sortAscending ? 1 : -1;
-                }
-                if (parseFloat(a.rating) < parseFloat(b.rating)) {
-                    return sortAscending ? -1 : 1;
-                }
-                if (a.company > b.company) {
-                    return sortAscending ? 1 : -1;
-                }
-                if (a.company > b.company) {
-                    return sortAscending ? -1 : 1;
-                }
-                if (a.vgpg > b.vgpg) {
-                    return sortAscending ? 1 : -1;
-                }
-                if (a.vgpg > b.vgpg) {
-                    return sortAscending ? -1 : 1;
-                }
-                if (parseFloat(a.nic) > parseFloat(b.nic)) {
-                    return sortAscending ? 1 : -1;
-                }
-                if (parseFloat(a.nic) > parseFloat(b.nic)) {
-                    return sortAscending ? -1 : 1;
-                }
-            });
-            break;
-        }
-    }
     handleOrderByChange (orderBy) {
         console.log("handleOrderByChange", orderBy);
         this.setState({defaultOrder: orderBy});
@@ -159,17 +32,16 @@ class EliquidListContainer extends React.Component {
     }
     componentDidMount () {
         if (!this.props.eLiquids) {
-            store.dispatch(bootstrapEliquids()).then(() => this.sortEliquids());
+            store.dispatch(bootstrapEliquids());
         };
     }
     render () {
         if (!this.props.eLiquids) {
             return false;
         }
-        this.sortEliquids();
         return (
             <EliquidList
-                eLiquids={this.eLiquidList}
+                eLiquids={sortEliquids(this.props.eLiquids, this.state.defaultOrder.split(","))}
                 orderByChangedHandler={this.handleOrderByChange}
                 addButtonClickHandler={this.handleAddButtonClick}
                 listItemClickHandler={this.handleListItemClick}
