@@ -1,4 +1,5 @@
-export const eLiquidsReducer = function (state = {}, action) {
+// TODO (js): all these should assign to state and return state
+export const eLiquidsReducer = function (state = {orderBy: "name,a"}, action) {
     switch (action.type) {
     case "ELIQUIDS_ISFETCHING":
         console.log("eLiquidsReducer action type = ELIQUIDS_ISFETCHING:", action.isFetching);
@@ -9,6 +10,9 @@ export const eLiquidsReducer = function (state = {}, action) {
     case "ELIQUIDS_FAILURE":
         console.log("eLiquidsReducer action type = ELIQUIDS_FAILURE:", action.error);
         return { ...state, failure: action.error };
+    case "ELIQUID_LIST_SORT_ORDER_SELECTED":
+        console.log("eLiquidsReducer action type = ELIQUIDS_FAILURE:", action.error);
+        return { ...state, orderBy: action.orderBy };
     default:
         console.log("eLiquidsReducer unknown action type:", action.type);
         return state;

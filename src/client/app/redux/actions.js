@@ -21,6 +21,13 @@ export function eLiquidsFailure (error) {
     };
 };
 
+export function eliquidListSortOrderSelected (orderBy) {
+    return {
+        type: "ELIQUID_LIST_SORT_ORDER_SELECTED",
+        orderBy
+    };
+}
+
 // load eLiquids asynchronously and then
 // dispatch ELIQUIDS_SUCCESS or ELIQUIDS_ERROR
 export function bootstrapEliquids () {
