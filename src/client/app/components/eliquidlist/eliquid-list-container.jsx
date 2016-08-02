@@ -10,18 +10,9 @@ class EliquidListContainer extends React.Component {
     constructor (props) {
         super(props);
         console.log("props", props);
-        this.handleOrderByChange = this.handleOrderByChange.bind(this);
         this.handleAddButtonClick = this.handleAddButtonClick.bind(this);
         this.handleListItemClick = this.handleListItemClick.bind(this);
-        // this.state = {
-        //     defaultOrder: "name,a"
-        // };
         this.eLiquidList = [];
-    }
-
-    handleOrderByChange (orderBy) {
-        console.log("handleOrderByChange", orderBy);
-        this.setState({defaultOrder: orderBy});
     }
     handleAddButtonClick (e) {
         browserHistory.push("/eliquid/create");
@@ -58,13 +49,9 @@ const mapStateToProps = function (state) {
     };
 };
 
-const mapDispatchToProps = function (dispatch) {
-    return {
-        onSortOrderChanged: (orderBy) => {
-            console.log("onSortOrderChanged called!");
-            dispatch(actions.eliquidListSortOrderSelected(orderBy));
-        }
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(EliquidListContainer);
+export default connect(
+    mapStateToProps,
+    // see https://egghead.io/lessons/javascript-redux-using-mapdispatchtoprops-shorthand-notation
+    // for an explanation of using mapDispatchToProps shorthand notation as per below for mapping dispatch to props.
+    { onSortOrderChanged: actions.eliquidListSortOrderSelected }
+)(EliquidListContainer);
