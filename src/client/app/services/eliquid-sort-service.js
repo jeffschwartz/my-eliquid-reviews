@@ -20,25 +20,25 @@ function sortEliquids (eLiquidList, [sortOn, sortAscending]) {
             if (a.category > b.category) {
                 return sortAscending ? 1 : -1;
             }
-            if (a.category > b.category) {
+            if (a.category < b.category) {
                 return sortAscending ? -1 : 1;
             }
             if (a.company > b.company) {
                 return sortAscending ? 1 : -1;
             }
-            if (a.company > b.company) {
+            if (a.company < b.company) {
                 return sortAscending ? -1 : 1;
             }
             if (a.vgpg > b.vgpg) {
                 return sortAscending ? 1 : -1;
             }
-            if (a.vgpg > b.vgpg) {
+            if (a.vgpg < b.vgpg) {
                 return sortAscending ? -1 : 1;
             }
             if (parseFloat(a.nic) > parseFloat(b.nic)) {
                 return sortAscending ? 1 : -1;
             }
-            if (parseFloat(a.nic) > parseFloat(b.nic)) {
+            if (parseFloat(a.nic) < parseFloat(b.nic)) {
                 return sortAscending ? -1 : 1;
             }
         });
@@ -60,25 +60,25 @@ function sortEliquids (eLiquidList, [sortOn, sortAscending]) {
             if (a.category > b.category) {
                 return sortAscending ? 1 : -1;
             }
-            if (a.category > b.category) {
+            if (a.category < b.category) {
                 return sortAscending ? -1 : 1;
             }
             if (a.company > b.company) {
                 return sortAscending ? 1 : -1;
             }
-            if (a.company > b.company) {
+            if (a.company < b.company) {
                 return sortAscending ? -1 : 1;
             }
             if (a.vgpg > b.vgpg) {
                 return sortAscending ? 1 : -1;
             }
-            if (a.vgpg > b.vgpg) {
+            if (a.vgpg < b.vgpg) {
                 return sortAscending ? -1 : 1;
             }
             if (parseFloat(a.nic) > parseFloat(b.nic)) {
                 return sortAscending ? 1 : -1;
             }
-            if (parseFloat(a.nic) > parseFloat(b.nic)) {
+            if (parseFloat(a.nic) < parseFloat(b.nic)) {
                 return sortAscending ? -1 : 1;
             }
         });
@@ -88,7 +88,7 @@ function sortEliquids (eLiquidList, [sortOn, sortAscending]) {
             if (a.category > b.category) {
                 return sortAscending ? 1 : -1;
             }
-            if (a.category > b.category) {
+            if (a.category < b.category) {
                 return sortAscending ? -1 : 1;
             }
             if (a.name > b.name) {
@@ -106,19 +106,19 @@ function sortEliquids (eLiquidList, [sortOn, sortAscending]) {
             if (a.company > b.company) {
                 return sortAscending ? 1 : -1;
             }
-            if (a.company > b.company) {
+            if (a.company < b.company) {
                 return sortAscending ? -1 : 1;
             }
             if (a.vgpg > b.vgpg) {
                 return sortAscending ? 1 : -1;
             }
-            if (a.vgpg > b.vgpg) {
+            if (a.vgpg < b.vgpg) {
                 return sortAscending ? -1 : 1;
             }
             if (parseFloat(a.nic) > parseFloat(b.nic)) {
                 return sortAscending ? 1 : -1;
             }
-            if (parseFloat(a.nic) > parseFloat(b.nic)) {
+            if (parseFloat(a.nic) < parseFloat(b.nic)) {
                 return sortAscending ? -1 : 1;
             }
         });
