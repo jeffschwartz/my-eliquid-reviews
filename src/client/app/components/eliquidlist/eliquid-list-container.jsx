@@ -53,5 +53,5 @@ export default connect(
     mapStateToProps,
     // see https://egghead.io/lessons/javascript-redux-using-mapdispatchtoprops-shorthand-notation
     // for an explanation of using mapDispatchToProps shorthand notation as per below for mapping dispatch to props.
-    { onSortOrderChanged: actions.eliquidListSortOrderSelected }
+    { onSortOrderChanged: actions.eLiquidListSortOrderSelected }
 )(EliquidListContainer);

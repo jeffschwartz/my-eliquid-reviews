@@ -21,7 +21,7 @@ export function eLiquidsFailure (error) {
     };
 };
 
-export function eliquidListSortOrderSelected (orderBy) {
+export function eLiquidListSortOrderSelected (orderBy) {
     return {
         type: "ELIQUID_LIST_SORT_ORDER_SELECTED",
         orderBy
