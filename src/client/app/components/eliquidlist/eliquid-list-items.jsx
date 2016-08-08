@@ -1,10 +1,11 @@
-const EliquidListItems = ({listItemClickHandler, eLiquids}) => {
-    function rowClickedHandler (e, id) {
-        listItemClickHandler(e, id);
-    }
-
+const EliquidListItems = ({eLiquids, handleListItemClick}) => {
     let rows = eLiquids.map((item, i) =>
-        <tr id={item.id} className="list__item" onClick={(e) => rowClickedHandler(e, item.id)} key={i}>
+        <tr
+            id={item.id}
+            className="list__item"
+            onClick={() => handleListItemClick(item.id)}
+            key={i}
+        >
             <td className="list__item-detail">{item.name}</td>
             <td className="list__item-detail">{item.company}</td>
             <td className="list__item-detail">{item.category}</td>

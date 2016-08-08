@@ -1,47 +1,38 @@
-import React from "react";
+import { Component } from "react";
 import { connect } from "react-redux";
-import sortEliquids from "../../services/eliquid-sort-service";
 import * as actions from "../../redux/actions";
-import store from "../../redux/store";
+import { browserHistory } from "react-router";
 import EliquidList from "./eliquid-list";
-import {browserHistory} from "react-router";
+import sortEliquids from "../../services/eliquid-sort-service";
 
-class EliquidListContainer extends React.Component {
-    constructor (props) {
-        super(props);
-        console.log("props", props);
-        this.handleAddButtonClick = this.handleAddButtonClick.bind(this);
-        this.handleListItemClick = this.handleListItemClick.bind(this);
-        this.eLiquidList = [];
+class EliquidListContainer extends Component {
+    handleOnSortOrderChanged (id) {
+        this.props.onSortOrderChanged(id);
     }
-    handleAddButtonClick (e) {
+
+    handleAdd () {
         browserHistory.push("/eliquid/create");
+    }
+
+    handleListItemClick (id) {
+        browserHistory.push("/eliquid/" + id);
     };
-    handleListItemClick (e, id) {
-        let url = "/eliquid/" + id;
-        browserHistory.push(url);
-    }
-    componentDidMount () {
-        if (!this.props.eLiquids) {
-            store.dispatch(actions.bootstrapEliquids());
-        };
-    }
+
     render () {
-        if (!this.props.eLiquids) {
-            return false;
-        }
-        console.log("container render", this.props);
+        const {eLiquids, orderBy} = this.props;
+
         return (
             <EliquidList
-                eLiquids={sortEliquids(this.props.eLiquids, this.props.orderBy.split(","))}
-                orderByChangedHandler={this.props.onSortOrderChanged}
-                addButtonClickHandler={this.handleAddButtonClick}
-                listItemClickHandler={this.handleListItemClick}
-                defaultOrder={this.props.orderBy} />
+                eLiquids={sortEliquids(eLiquids, orderBy.split(","))}
+                orderBy={orderBy}
+                handleOnSortOrderChanged={this.handleOnSortOrderChanged.bind(this)}
+                handleAdd= {this.handleAdd}
+                handleListItemClick={this.handleListItemClick}
+            />
         );
     }
-}
 
+}
 const mapStateToProps = function (state) {
     return {
         eLiquids: state.eLiquidsState.eLiquids,
