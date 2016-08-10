@@ -1,8 +1,7 @@
 import {Field, reduxForm} from "redux-form";
 
-const validate = (values) => {
-    console.log("values =", values);
-    let errors = {};
+const validate = values => {
+    const errors = {};
     let required = "Required!";
 
     console.log("validate called! values =", values);
@@ -29,7 +28,7 @@ const validate = (values) => {
     return errors;
 };
 
-const renderField = (field) => (
+const renderField = field => (
     <div className="form-item-container">
         <div className="label-container">
             <label htmlFor={field.name}>{field.label}: </label>
