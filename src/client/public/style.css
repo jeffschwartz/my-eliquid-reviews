@@ -83,3 +83,30 @@
 .list__item-detail {
     color: green;
 }
+
+button[type="submit" i] {
+    background-color: #285f8f;
+    color: #fff;
+    border: 1px solid #285f8f;
+}
+
+button[type="button" i] {
+    background-color: #f00;
+    color: #fff;
+    border: solid 1px #f00;
+}
+
+button[type="button" i], button[type="submit" i] {
+    font-size: 20px;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+button[type="submit" i][disabled] {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.invalid-value {
+    color: #f00;
+}

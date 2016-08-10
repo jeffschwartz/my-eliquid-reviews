@@ -5,7 +5,7 @@ import store from "./redux/store";
 import * as actions from "./redux/actions";
 import App from "./components/app";
 import EliquidListContainer from "./components/eliquidlist/eliquid-list-container";
-import EliquidAddForm from "./components/eliquidadd/eliquid-add-form";
+import EliquidAddContainer from "./components/eliquidadd/eliquid-add-container";
 import EliquidEdit from "./components/eliquidedit/eliquid-edit";
 import EliquidDelete from "./components/eliquiddelete/eliquid-delete";
 import EliquidDetails from "./components/eliquiddetails/eliquid-details";
@@ -20,7 +20,7 @@ store.dispatch(actions.bootstrapEliquids()).then(() => {
             <Router history={browserHistory}>
                 <Route path="/" component={App}>
                     <IndexRoute component={EliquidListContainer} />
-                    <Route path="/eliquid/create" component={EliquidAddForm} />
+                    <Route path="/eliquid/create" component={EliquidAddContainer} />
                     <Route path="/eliquid/:id" component={EliquidDetails} />
                     <Route path="/eliquid/:id/edit" component={EliquidEdit} />
                     <Route path="/eliquid/:id/delete" component={EliquidDelete} />

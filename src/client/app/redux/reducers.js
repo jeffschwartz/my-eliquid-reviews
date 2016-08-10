@@ -1,4 +1,4 @@
-export const eLiquidsReducer = function (state = {orderBy: "name,a"}, action) {
+export const eLiquidsReducer = (state = {orderBy: "name,a"}, action) => {
     switch (action.type) {
     case "ELIQUIDS_ISFETCHING":
         return { ...state, isFetching: action.isFetching };
@@ -8,12 +8,14 @@ export const eLiquidsReducer = function (state = {orderBy: "name,a"}, action) {
         return { ...state, failure: action.error };
     case "ELIQUID_LIST_SORT_ORDER_SELECTED":
         return { ...state, orderBy: action.orderBy };
+    case "ELIQUIDS_ADDED_NEW":
+        return { ...state, eLiquids: state.eLiquids.concat(action.eLiquid) };
     default:
         return state;
     }
 };
 
-export const eLiquidListComponentReducer = function (state = {}, action) {
+export const eLiquidListComponentReducer = (state = {}, action) => {
     switch (action.type) {
     case "EJUICE_LIST_ORDER_BY":
         return { ...state, orderBy: action.orderBy };
