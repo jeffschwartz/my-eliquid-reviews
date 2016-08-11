@@ -1,12 +1,11 @@
 import EliquidAddForm from "./eliquid-add-form";
 
 const EliquidAddContainer = () => {
-    const handleSubmit = () => {
-        console.log("handleSubmit called, form values =", arguments);
-        debugger;
+    const handleSubmit = data => {
+        console.log("handleSubmit called, data =", data);
     };
     return (
-        <EliquidAddForm handleSubmit={handleSubmit}/>
+        <EliquidAddForm onSubmit={handleSubmit}/>
     );
 };
 
