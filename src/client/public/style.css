@@ -105,6 +105,7 @@ button[type="button" i], button[type="submit" i] {
 button[type="submit" i][disabled] {
     background-color: #ccc;
     cursor: not-allowed;
+    margin-right: 10px;
 }
 
 .invalid-value {
