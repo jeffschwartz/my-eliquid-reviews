@@ -1,10 +1,12 @@
 import {combineReducers, createStore, applyMiddleware} from "redux";
 import thunk from "redux-thunk";
 import {eLiquidsReducer, eLiquidListComponentReducer} from "./reducers";
+import {reducer as formReducer} from "redux-form";
 
 const reducers = combineReducers({
     eLiquidsState: eLiquidsReducer,
-    eLiquidListComponentState: eLiquidListComponentReducer
+    eLiquidListComponentState: eLiquidListComponentReducer,
+    form: formReducer
 });
 
 const store = createStore(
@@ -12,6 +14,6 @@ const store = createStore(
     applyMiddleware(thunk)
 );
 
-console.log("store.getState()", store.getState());
+store.subscribe(() => console.log(store.getState()));
 
 export default store;

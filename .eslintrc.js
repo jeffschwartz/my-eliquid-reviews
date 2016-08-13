@@ -28,6 +28,7 @@ module.exports = {
         "quotes": ["error", "double"],
         "indent": ["error", 4],
         "react/jsx-uses-vars": "error",
-        "eol-last": 0
+        "eol-last": 0,
+        "no-class-assign": 0
     }
 };
