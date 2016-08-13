@@ -2,7 +2,7 @@ import EliquidAddForm from "./eliquid-add-form";
 
 const EliquidAddContainer = () => {
     const handleSubmit = data => {
-        console.log("handleSubmit called, data =", data);
+        alert("handleSubmit called, data = " + JSON.stringify(data));
     };
     return (
         <EliquidAddForm onSubmit={handleSubmit}/>
