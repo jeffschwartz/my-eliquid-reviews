@@ -96,21 +96,59 @@ const EliquidAddForm = ({handleSubmit, pristine, submitting, invalid}) => {
             <div className="form-container">
                 <h2>Add A New Eliquid</h2>
 
-                <Field name="name" label="Name" className="input-container__input" component={renderField} placeholder="enter name" autoFocus="true" />
+                <Field
+                    name="name"
+                    label="Name"
+                    className="input-container__input"
+                    component={renderField}
+                    placeholder="enter name"
+                    autoFocus="true"
+                />
 
-                <Field name="company" label="Company" className="input-container__input" component={renderField} placeholder="enter company"/>
+                <Field
+                    name="company"
+                    label="Company"
+                    className="input-container__input"
+                    component={renderField}
+                    placeholder="enter company"
+                />
 
-                <Field name="category" label="Category" className="input-container__input" component={renderField} placeholder="enter category"/>
+                <Field
+                    name="category"
+                    label="Category"
+                    className="input-container__input"
+                    component={renderField}
+                    placeholder="enter category"
+                />
 
-                <Field name="rating" label="Rating" className="input-container__input" component={renderField} placeholder="enter rating"/>
+                <Field
+                    name="rating"
+                    label="Rating"
+                    className="input-container__input"
+                    component={renderField}
+                    placeholder="enter rating"
+                />
 
-                <Field name="vgpg" label="Vg/Pg (%)" className="input-container__input" component={renderField} placeholder="enter vg/pg"/>
+                <Field
+                    name="vgpg"
+                    label="Vg/Pg (%)"
+                    className="input-container__input"
+                    component={renderField}
+                    placeholder="enter vg/pg"
+                />
 
-                <Field name="nic" label="Nic (mg)" className="input-container__input" component={renderField} placeholder="enter nic"/>
+                <Field
+                    name="nic"
+                    label="Nic (mg)"
+                    className="input-container__input"
+                    component={renderField}
+                    placeholder="enter nic"
+                />
 
                 <div className="form-item-container">
                     <div className="button-container">
-                        <button type="submit" disabled={pristine || submitting || invalid}>Submit</button> <button type="button" onClick={cancelHandler}>Cancel</button>
+                        <button type="submit" disabled={pristine || submitting || invalid}>Submit</button>
+                        <button type="button" onClick={cancelHandler}>Cancel</button>
                     </div>
                 </div>
             </div>
