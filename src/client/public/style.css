@@ -22,11 +22,12 @@
     margin: 10px;
 }
 
-.label-container label, .input-container input, .button-container button {
+.label-container label, .input-container input,
+.input-container textarea, .button-container button {
     font-size: 1em;
 }
 
-.input-container input {
+.input-container input, .input-container textarea {
     width: 100%;
     padding: 5px;
 }

@@ -21,7 +21,7 @@ const renderField = field => (
     </div>
 );
 
-const EliquidAddForm = ({handleSubmit, validate, pristine, submitting, invalid}) => {
+const EliquidAddForm = ({handleSubmit, pristine, submitting, invalid}) => {
     return (
         <form onSubmit={handleSubmit}>
             <div className="form-container">
@@ -75,6 +75,15 @@ const EliquidAddForm = ({handleSubmit, validate, pristine, submitting, invalid})
                     component={renderField}
                     placeholder="enter nic"
                 />
+
+                <div className="form-item-container">
+                    <div className="label-container">
+                        <label htmlFor="review">Review: </label>
+                    </div>
+                    <div className="input-container">
+                        <Field name="review" component="textarea" />
+                    </div>
+                </div>
 
                 <div className="form-item-container">
                     <div className="button-container">
