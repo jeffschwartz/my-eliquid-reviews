@@ -2,7 +2,7 @@
   "name": "eliquid",
   "version": "1.0.0",
   "description": "React Quickstart with Webpack and Babel",
-  "main": "''",
+  "main": "main.js",
   "keywords": [
     "React",
     "Webpack",
@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.9.1",
+    "express": "^4.14.0",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
     "react-redux": "^4.4.5",
