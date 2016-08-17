@@ -2,7 +2,7 @@
   "name": "eliquid",
   "version": "1.0.0",
   "description": "React Quickstart with Webpack and Babel",
-  "main": "''",
+  "main": "main.js",
   "keywords": [
     "React",
     "Webpack",
