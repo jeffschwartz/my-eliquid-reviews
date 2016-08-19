@@ -26,7 +26,9 @@
     "serve": "webpack && node main.js"
   },
   "dependencies": {
+    "axios": "^0.13.1",
     "babel-polyfill": "^6.9.1",
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "mongodb": "^2.2.6",
     "react": "^15.2.1",

@@ -1,3 +1,5 @@
+import axios from "axios";
+
 class EliquidService {
     constructor () {
         this.eliquids = [
@@ -27,15 +29,19 @@ class EliquidService {
     getById (id) {
         return new Promise((resolve, reject) => {
             let result = this.eliquids.filter(eliquid => eliquid.id === id);
-            console.log("getById returning", result[0]);
             resolve(result[0]);
         });
     }
     add (eliquid) {
-        return new Promise((resolve, reject) => {
-            eliquid.id = this.eliquids.length;
-            this.eliquids.push(eliquid);
-            resolve(this.eliquids);
+        // return new Promise((resolve, reject) => {
+        //     eliquid.id = this.eliquids.length;
+        //     this.eliquids.push(eliquid);
+        //     resolve(this.eliquids);
+        // });
+        return axios.post("/api/v1/ejuice", eliquid)
+        .then(result => {
+            // resolve the promise returning result
+            return result;
         });
     }
     update (eliquid) {
