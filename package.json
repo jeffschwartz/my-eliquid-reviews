@@ -2,7 +2,7 @@
   "name": "eliquid",
   "version": "1.0.0",
   "description": "React Quickstart with Webpack and Babel",
-  "main": "''",
+  "main": "main.js",
   "keywords": [
     "React",
     "Webpack",
@@ -22,10 +22,15 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack && webpack-dev-server --inline --hot --host 0.0.0.0 --content-base src/client/public/ --history-api-fallback",
-    "build": "webpack"
+    "build": "webpack",
+    "serve": "webpack && node main.js"
   },
   "dependencies": {
+    "axios": "^0.13.1",
     "babel-polyfill": "^6.9.1",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongodb": "^2.2.6",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
     "react-redux": "^4.4.5",

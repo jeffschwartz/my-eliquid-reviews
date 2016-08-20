@@ -15,7 +15,6 @@ const EliquidList = ({
                 handleOnSortOrderChanged={handleOnSortOrderChanged}
                 handleAdd={handleAdd}
              />
-                }
             <EliquidListItems
                 eLiquids={eLiquids}
                 handleListItemClick={handleListItemClick}
