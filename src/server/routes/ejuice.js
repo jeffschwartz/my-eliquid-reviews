@@ -18,13 +18,17 @@ router.use(function (req, res, next) {
 
 // get all ejuice docs
 router.get("/api/v1/ejuice", function (req, res) {
-
+    database.getAll(req.app.locals.db, function (err, result) {
+        if (err) {
+            res.status(500).json({ error: err });
+        } else {
+            res.status(200).json({ docs: result });
+        }
+    });
 });
 
 // insert ejuice doc
 router.post("/api/v1/ejuice", jsonParser, function (req, res) {
-    console.log("req.app.locals.db =", req.app.locals.db);
-    console.log("req.body", req.body);
     database.insert(req.app.locals.db, req.body, function (err, result) {
         if (err) {
             res.status(500).json({ error: err });

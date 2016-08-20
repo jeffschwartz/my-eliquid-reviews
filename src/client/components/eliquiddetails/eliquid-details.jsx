@@ -21,7 +21,8 @@ export default class EliquidDetails extends React.Component {
         };
     }
     componentDidMount () {
-        eliquidService.getById(parseInt(this.props.params.id)).then((eliquid) => {
+        console.log("this.props", this.props);
+        eliquidService.getById(this.props.params.id).then((eliquid) => {
             this.setState({eliquid: eliquid});
         });
     }
