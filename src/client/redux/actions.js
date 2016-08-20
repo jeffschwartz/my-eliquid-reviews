@@ -25,21 +25,33 @@ export const eLiquidListSortOrderSelected = orderBy => ({
     orderBy
 });
 
+export const eLiquidSelected = eLiquidSelected => ({
+    type: "ELIQUID_SELECTED",
+    eLiquidSelected
+});
+
 // loads eLiquids asynchronously & then dispatches either
 // ELIQUIDS_SUCCESS or ELIQUIDS_ERROR based on success or
 // failure, respectively, of the promise
 export const bootstrapEliquids = () => {
     return function (dispatch) {
         dispatch(eLiquidsIsFetching(true));
-        return eliquidService.get().then(
-            result => {
-                console.log("bootstrap result", result);
-                dispatch(eLiquidsSuccess(result.data.docs));
-                dispatch(eLiquidsIsFetching(false));
-            },
-            error => {
-                dispatch(eLiquidsFailure(error));
-            }
+        return eliquidService.get()
+        .then(result => {
+            dispatch(eLiquidsSuccess(result.data.docs));
+            dispatch(eLiquidsIsFetching(false));
+        },
+            error => dispatch(eLiquidsFailure(error))
         );
+    };
+};
+
+export const eLiquidHasBeenSelected = (id) => {
+    return function (dispatch) {
+        return eliquidService.getById(id)
+        .then(result => {
+            dispatch(eLiquidSelected(result));
+            return result;
+        });
     };
 };

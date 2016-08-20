@@ -8,7 +8,7 @@ import EliquidListContainer from "./components/eliquidlist/eliquid-list-containe
 import EliquidAddContainer from "./components/eliquidadd/eliquid-add-container";
 import EliquidEdit from "./components/eliquidedit/eliquid-edit";
 import EliquidDelete from "./components/eliquiddelete/eliquid-delete";
-import EliquidDetails from "./components/eliquiddetails/eliquid-details";
+import EliquidDetailsContainer from "./components/eliquiddetails/eliquid-details-container";
 
 // bootstrap the app with its data by dispatching an async action (via
 // middleware redux-thunk) which returns a promise. When the promise
@@ -21,7 +21,7 @@ store.dispatch(actions.bootstrapEliquids()).then(() => {
                 <Route path="/" component={App}>
                     <IndexRoute component={EliquidListContainer} />
                     <Route path="/eliquid/create" component={EliquidAddContainer} />
-                    <Route path="/eliquid/:id" component={EliquidDetails} />
+                    <Route path="/eliquid/:id" component={EliquidDetailsContainer} />
                     <Route path="/eliquid/:id/edit" component={EliquidEdit} />
                     <Route path="/eliquid/:id/delete" component={EliquidDelete} />
                 </Route>

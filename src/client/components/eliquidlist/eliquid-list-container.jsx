@@ -4,6 +4,7 @@ import * as actions from "../../redux/actions";
 import { browserHistory } from "react-router";
 import EliquidList from "./eliquid-list";
 import sortEliquids from "../../services/eliquid-sort-service";
+import store from "../../redux/store";
 
 class EliquidListContainer extends Component {
     handleAdd () {
@@ -11,7 +12,10 @@ class EliquidListContainer extends Component {
     }
 
     handleListItemClick (id) {
-        browserHistory.push("/eliquid/" + id);
+        store.dispatch(actions.eLiquidHasBeenSelected(id))
+        .then(() => {
+            browserHistory.push("/eliquid/" + id);
+        });
     };
 
     render () {
@@ -27,8 +31,8 @@ class EliquidListContainer extends Component {
             />
         );
     }
-
 }
+
 const mapStateToProps = function (state) {
     return {
         eLiquids: state.eLiquidsState.eLiquids,
