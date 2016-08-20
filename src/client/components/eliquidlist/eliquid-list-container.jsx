@@ -6,10 +6,6 @@ import EliquidList from "./eliquid-list";
 import sortEliquids from "../../services/eliquid-sort-service";
 
 class EliquidListContainer extends Component {
-    handleOnSortOrderChanged (id) {
-        this.props.onSortOrderChanged(id);
-    }
-
     handleAdd () {
         browserHistory.push("/eliquid/create");
     }
@@ -19,13 +15,13 @@ class EliquidListContainer extends Component {
     };
 
     render () {
-        const {eLiquids, orderBy} = this.props;
+        const {eLiquids, orderBy, onSortOrderChanged} = this.props;
 
         return (
             <EliquidList
                 eLiquids={sortEliquids(eLiquids, orderBy.split(","))}
                 orderBy={orderBy}
-                handleOnSortOrderChanged={this.handleOnSortOrderChanged.bind(this)}
+                handleOnSortOrderChanged={onSortOrderChanged}
                 handleAdd= {this.handleAdd}
                 handleListItemClick={this.handleListItemClick}
             />
