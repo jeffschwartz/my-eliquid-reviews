@@ -43,7 +43,8 @@ export const bootstrapEliquids = () => {
         dispatch(eLiquidsIsFetching(true));
         return eliquidService.get().then(
             result => {
-                dispatch(eLiquidsSuccess(result));
+                console.log("bootstrap result", result);
+                dispatch(eLiquidsSuccess(result.data.docs));
                 dispatch(eLiquidsIsFetching(false));
             },
             error => {

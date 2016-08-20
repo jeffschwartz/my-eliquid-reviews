@@ -1,9 +1,9 @@
 const EliquidListItems = ({eLiquids, handleListItemClick}) => {
     let rows = eLiquids.map((item, i) =>
         <tr
-            id={item.id}
+            id={item._id}
             className="list__item"
-            onClick={() => handleListItemClick(item.id)}
+            onClick={() => handleListItemClick(item._id)}
             key={i}
         >
             <td className="list__item-detail">{item.name}</td>

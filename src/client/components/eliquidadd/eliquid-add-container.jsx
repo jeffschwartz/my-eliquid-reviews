@@ -1,4 +1,8 @@
 import EliquidAddForm from "./eliquid-add-form";
+import dataService from "../../services/eliquid-data-service";
+import store from "../../redux/store";
+import {eLiquidsAddedNew} from "../../redux/actions";
+import {browserHistory} from "react-router";
 
 const validateRating = value => {
     if (/^([1-5{1}]+(\.[0-9{1}])?|Infinity)$/.test(value)) {
@@ -39,8 +43,6 @@ const validate = values => {
     let vgpg = `${required}, enter a ratio of vg/pg and must = 100 - e.g. 65/35`;
     let nic = `${required}, enter a positive number 0 or greater`;
 
-    console.log("validate called! values =", values);
-
     if (!values.name) {
         errors.name = name;
     }
@@ -67,10 +69,20 @@ const validate = values => {
 
     return errors;
 };
+
+const postToDB = (data) => {
+    dataService.add(data).then(function (result) {
+        console.log("eliquid added to database - result = ", result);
+        store.dispatch(eLiquidsAddedNew(result.data.doc));
+        browserHistory.push("/");
+    });
+};
+
+const handleSubmit = data => {
+    postToDB(data);
+};
+
 const EliquidAddContainer = () => {
-    const handleSubmit = data => {
-        alert("handleSubmit called, data = " + JSON.stringify(data));
-    };
     return (
         <EliquidAddForm onSubmit={handleSubmit} validate={validate}/>
     );
