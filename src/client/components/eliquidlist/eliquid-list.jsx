@@ -14,6 +14,7 @@ const EliquidList = ({
                 defaultOrder={orderBy}
                 handleOnSortOrderChanged={handleOnSortOrderChanged}
                 handleAdd={handleAdd}
+                count={eLiquids.length}
              />
             <EliquidListItems
                 eLiquids={eLiquids}
