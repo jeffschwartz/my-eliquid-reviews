@@ -28,6 +28,7 @@ const EliquidDetails = props => {
                     <EliquidDetail label="Rating" propValue={selectedEliquid.rating} />
                     <EliquidDetail label="VGPG" propValue={selectedEliquid.vgpg} />
                     <EliquidDetail label="Nic" propValue={selectedEliquid.nic} />
+                    <EliquidDetail label="Review" propValue={selectedEliquid.review} />
                 </div>
             </div>
     );
