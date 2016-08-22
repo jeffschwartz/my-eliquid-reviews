@@ -3,7 +3,7 @@ const EliquidListHeader = ({count, handleOnSortOrderChanged, handleAdd, defaultO
         <div className="list__header-container">
             <h1 className="list__header">Eliquids</h1>
             <div className="list__header-button-container">
-                <span>count: {count} </span>
+                <span>count: {count}, </span>
                 <span>order by: </span>
                 <select
                     onChange={(e) => handleOnSortOrderChanged(e.target.value)}
