@@ -1,3 +1,7 @@
+html, body {
+    font-family: "Roboto", sans-serif;
+}
+
 .nav {
     text-decoration: none;
 }
@@ -42,6 +46,7 @@
     line-height: 2em;
     border-bottom: solid 1px #000;
     overflow: hidden;
+    padding-bottom: 10px;
 }
 
 .list__header {
@@ -65,8 +70,9 @@
 
 .list__items-header {
     text-align: left;
+    text-decoration: underline;
     font-weight: bold;
-    text-decoration: none;
+    font-size: 1.1em;
     padding: 5px 0;
 }
 
