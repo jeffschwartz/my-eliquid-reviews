@@ -1,7 +1,8 @@
 import {Component} from "react";
+import Container from "../container/container";
 
 class EliquidDetail extends Component {
-    render () {
+    render() {
         let propValue = this.props.propValue;
         let label = this.props.label;
         return (
@@ -16,7 +17,8 @@ const EliquidDetails = props => {
     const {selectedEliquid} = props;
     console.log("selectedEliquid", selectedEliquid);
     return (
-            <div>
+        <Container>
+            <div className="page-container">
                 <h2>Eliquid Details</h2>
                 <div>
                     <button>Edit</button> <button>Delete</button>
@@ -31,6 +33,7 @@ const EliquidDetails = props => {
                     <EliquidDetail label="Review" propValue={selectedEliquid.review} />
                 </div>
             </div>
+        </Container>
     );
 };
 

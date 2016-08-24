@@ -1,5 +1,6 @@
 import {Field, reduxForm} from "redux-form";
 import {browserHistory} from "react-router";
+import Container from "../container/container";
 
 const cancelHandler = () => browserHistory.push("/");
 
@@ -14,85 +15,86 @@ const renderField = field => (
                 placeholder={field.placeholder}
                 autoFocus={field.autoFocus}
                 type="text"
-            />
+                />
             {field.meta.touched && field.meta.error &&
-            <span className="invalid-value">{field.meta.error}</span>}
+                <span className="invalid-value">{field.meta.error}</span>}
         </div>
     </div>
 );
 
 const EliquidAddForm = ({handleSubmit, pristine, submitting, invalid}) => {
     return (
-        <form onSubmit={handleSubmit}>
-            <div className="form-container">
-                <h2>Add A New Eliquid</h2>
+        <Container>
+            <div className="page-container">
+                <h1 className="page-title">Add A New Eliquid</h1>
+                <form onSubmit={handleSubmit}>
+                    <Field
+                        name="name"
+                        label="Name"
+                        className="input-container__input"
+                        component={renderField}
+                        placeholder="enter name"
+                        autoFocus="true"
+                        />
 
-                <Field
-                    name="name"
-                    label="Name"
-                    className="input-container__input"
-                    component={renderField}
-                    placeholder="enter name"
-                    autoFocus="true"
-                />
+                    <Field
+                        name="company"
+                        label="Company"
+                        className="input-container__input"
+                        component={renderField}
+                        placeholder="enter company"
+                        />
 
-                <Field
-                    name="company"
-                    label="Company"
-                    className="input-container__input"
-                    component={renderField}
-                    placeholder="enter company"
-                />
+                    <Field
+                        name="category"
+                        label="Category"
+                        className="input-container__input"
+                        component={renderField}
+                        placeholder="enter category"
+                        />
 
-                <Field
-                    name="category"
-                    label="Category"
-                    className="input-container__input"
-                    component={renderField}
-                    placeholder="enter category"
-                />
+                    <Field
+                        name="rating"
+                        label="Rating"
+                        className="input-container__input"
+                        component={renderField}
+                        placeholder="enter rating"
+                        />
 
-                <Field
-                    name="rating"
-                    label="Rating"
-                    className="input-container__input"
-                    component={renderField}
-                    placeholder="enter rating"
-                />
+                    <Field
+                        name="vgpg"
+                        label="Vg/Pg (%)"
+                        className="input-container__input"
+                        component={renderField}
+                        placeholder="enter vg/pg"
+                        />
 
-                <Field
-                    name="vgpg"
-                    label="Vg/Pg (%)"
-                    className="input-container__input"
-                    component={renderField}
-                    placeholder="enter vg/pg"
-                />
+                    <Field
+                        name="nic"
+                        label="Nic (mg)"
+                        className="input-container__input"
+                        component={renderField}
+                        placeholder="enter nic"
+                        />
 
-                <Field
-                    name="nic"
-                    label="Nic (mg)"
-                    className="input-container__input"
-                    component={renderField}
-                    placeholder="enter nic"
-                />
-
-                <div className="form-item-container">
-                    <div className="label-container">
-                        <label htmlFor="review">Review: </label>
+                    <div className="form-item-container">
+                        <div className="label-container">
+                            <label htmlFor="review">Review: </label>
+                        </div>
+                        <div className="input-container">
+                            <Field name="review" component="textarea" />
+                        </div>
                     </div>
-                    <div className="input-container">
-                        <Field name="review" component="textarea" />
-                    </div>
-                </div>
 
-                <div className="form-item-container">
-                    <div className="button-container">
-                        <button type="submit" disabled={pristine || submitting || invalid}>Submit</button>
-                        <button type="button" onClick={cancelHandler}>Cancel</button>
+                    <div className="form-item-container">
+                        <div className="button-container">
+                            <button type="submit" disabled={pristine || submitting || invalid}>Submit</button>
+                            <button type="button" onClick={cancelHandler}>Cancel</button>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
-        </form>
+        </Container>
     );
 };
 

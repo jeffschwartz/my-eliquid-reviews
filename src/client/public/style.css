@@ -2,12 +2,16 @@ html, body {
     font-family: "Roboto", sans-serif;
 }
 
+body {
+    padding-top: 72px; /* needed when using fixed Navbar */
+}
+
 .nav {
     text-decoration: none;
 }
 
 .nav--green {
-    color: green;
+    color: green !important;
 }
 
 .nav--active {
@@ -36,17 +40,16 @@ html, body {
     padding: 5px;
 }
 
-.list {
-    border-top: solid 1px #000;
-    padding: 10px;
+.page-container {
+    padding-top: 10px;
 }
 
 .list__header-container {
     min-height: 2em;
     line-height: 2em;
-    border-bottom: solid 1px #000;
     overflow: hidden;
     padding-bottom: 10px;
+    border-bottom: solid 1px #eee;
 }
 
 .list__header {
@@ -117,4 +120,10 @@ button[type="submit" i][disabled] {
 
 .invalid-value {
     color: #f00;
+}
+
+h1.page-title {
+    margin-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: solid 2px #eee;
 }

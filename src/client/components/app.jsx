@@ -1,16 +1,16 @@
 import React from "react";
-import NavLink from "./navlink/navlink";
+import AppNavbar from "../components/navbar/appnavbar";
+import NavLink from "../components/navlink/navlink";
+import Container from "./container/container";
 
-export default class App extends React.Component {
-    render () {
-        return (
-            <div>
-                <div>
-                    <NavLink to="/">Home</NavLink>
-                    <h1>My Eliquid Reviews</h1>
-                </div>
-                {this.props.children}
-            </div>
-        );
-    }
-}
+const App = (props) => (
+    <div>
+        <AppNavbar fixedTop />
+        <Container>
+            <NavLink to="/">Home</NavLink>
+        </Container>
+        {props.children}
+    </div>
+);
+
+export default App;

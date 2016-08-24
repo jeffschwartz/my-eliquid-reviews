@@ -1,5 +1,5 @@
 module.exports = {
-    "extends": "standard",
+    "extends": ["standard", "plugin:react/recommended"],
     "plugins": [
         "standard",
         "promise",
@@ -30,6 +30,8 @@ module.exports = {
         "indent": ["error", 4],
         "react/jsx-uses-vars": "error",
         "eol-last": 0,
-        "no-class-assign": 0
+        "no-class-assign": 0,
+        "react/prop-types": 0,
+        "react/react-in-jsx-scope": 0
     }
 };
