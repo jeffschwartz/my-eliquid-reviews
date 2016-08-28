@@ -38,7 +38,11 @@ let makeRows = (rows, handleListItemClick) => {
                             key={i}
                             header={<h1>{item.name}</h1>}
                             onClick={() => handleListItemClick(item._id) } >
-                            Panel content
+                            Rating: {item.rating}<br/>
+                            Category: {item.category}<br/>
+                            Compay: {item.company}<br/>
+                            VG/PG: {item.vgpg}, NIC: {item.nic}<br/>
+                            Review: <p>{item.review}</p>
                         </Panel>
                     </Col>
                 )
