@@ -1,4 +1,5 @@
 import Container from "../container/container";
+import Button from "react-bootstrap/lib/Button";
 
 const EliquidListHeader = ({count, handleOnSortOrderChanged, handleAdd, defaultOrder}) => {
     return (
@@ -18,10 +19,10 @@ const EliquidListHeader = ({count, handleOnSortOrderChanged, handleAdd, defaultO
                         <option value="rating,a">rating - ascending</option>
                         <option value="rating,d">rating - descending</option>
                     </select>
-                    <button
-                        className="list__header-button"
+                    <Button
+                        bsStyle="primary"
                         onClick={() => handleAdd() }>Add Eliquid
-                    </button>
+                    </Button>
                 </div>
             </div>
         </Container>

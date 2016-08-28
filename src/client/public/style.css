@@ -94,7 +94,7 @@ body {
     color: green;
 }
 
-button[type="submit" i] {
+/*button[type="submit" i] {
     background-color: #285f8f;
     color: #fff;
     border: 1px solid #285f8f;
@@ -115,6 +115,10 @@ button[type="button" i], button[type="submit" i] {
 button[type="submit" i][disabled] {
     background-color: #ccc;
     cursor: not-allowed;
+    margin-right: 10px;
+}*/
+
+button {
     margin-right: 10px;
 }
 

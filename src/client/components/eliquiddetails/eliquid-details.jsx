@@ -1,5 +1,6 @@
 import Container from "../container/container";
 import Panel from "react-bootstrap/lib/Panel";
+import Button from "react-bootstrap/lib/Button";
 
 const EliquidDetails = props => {
     const {selectedEliquid, handleDone} = props;
@@ -18,11 +19,12 @@ const EliquidDetails = props => {
                         Compay: {selectedEliquid.company}<br/>
                         VG/PG: {selectedEliquid.vgpg}, NIC: {selectedEliquid.nic}<br/>
                         Review: <p>{selectedEliquid.review}</p><br/>
-                        <button
+                        <Button
                             type="button"
+                            bsStyle="primary"
                             onClick={handleDone}>
                             Done
-                        </button>
+                        </Button>
                     </Panel>
                 </div>
             </Container>

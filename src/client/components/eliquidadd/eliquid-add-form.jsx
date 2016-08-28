@@ -5,6 +5,8 @@ import FormGroup from "react-bootstrap/lib/FormGroup";
 import ControlLabel from "react-bootstrap/lib/ControlLabel";
 import FormControl from "react-bootstrap/lib/FormControl";
 import HelpBlock from "react-bootstrap/lib/HelpBlock";
+import Button from "react-bootstrap/lib/Button";
+import ButtonGroup from "react-bootstrap/lib/ButtonGroup";
 
 const cancelHandler = () => browserHistory.push("/");
 
@@ -15,7 +17,7 @@ const renderField = field => (
             {...field.input}
             type={field.type}
             placeholder={field.placeholder}
-            autoFocus={field.autofocus} />
+            autoFocus={field.autoFocus} />
         <HelpBlock
             className="invalid-value">
             {field.meta.touched && field.meta.error ? field.meta.error : ""}
@@ -93,12 +95,9 @@ const EliquidAddForm = ({handleSubmit, pristine, submitting, invalid}) => {
                         className="label-container"
                         component={renderField}
                         />
-                    <div className="form-item-container">
-                        <div className="button-container">
-                            <button type="submit" disabled={pristine || submitting || invalid}>Submit</button>
-                            <button type="button" onClick={cancelHandler}>Cancel</button>
-                        </div>
-                    </div>
+                    <ButtonGroup>
+                        <Button type="submit" bsStyle="primary" disabled={pristine || submitting || invalid}>Submit</Button> <Button type="button" onClick={cancelHandler}>Cancel</Button>
+                    </ButtonGroup>
                 </form>
             </Container>
         </div>
