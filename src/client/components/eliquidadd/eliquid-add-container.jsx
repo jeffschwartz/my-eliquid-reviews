@@ -86,7 +86,9 @@ class EliquidAddContainer extends Component {
 
     render () {
         return (
-            <EliquidAddForm onSubmit={this.handleSubmit.bind(this)} validate={validate}/>
+            <EliquidAddForm
+                onSubmit={this.handleSubmit.bind(this) }
+                validate={validate}/>
         );
     }
 };
