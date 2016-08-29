@@ -3,15 +3,6 @@ import Row from "react-bootstrap/lib/Row";
 import Col from "react-bootstrap/lib/Col";
 import Panel from "react-bootstrap/lib/Panel";
 
-// const shortenTo = (text, len, elipsis) => {
-//     if (text.length <= len) {
-//         return text;
-//     }
-//     text = text.slice(0, elipsis ? len - 3 : len);
-//     text = elipsis ? text + "..." : text;
-//     return text;
-// };
-
 let spliceUp = (eLiquids) => {
     console.log("sliceUp called", eLiquids);
     let rs = [];
