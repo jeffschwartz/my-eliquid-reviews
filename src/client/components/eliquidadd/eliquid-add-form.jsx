@@ -10,21 +10,37 @@ import ButtonGroup from "react-bootstrap/lib/ButtonGroup";
 
 const cancelHandler = () => browserHistory.push("/");
 
-const renderField = field => (
-    <FormGroup controlId={field.name}>
-        <ControlLabel>{field.label}</ControlLabel>
+const renderInputField = ({name, label, input, type, placeholder, autoFocus, meta: {touched, error}}) => (
+    <FormGroup controlId={name}>
+        <ControlLabel>{label}</ControlLabel>
         <FormControl
-            {...field.input}
-            type={field.type}
-            placeholder={field.placeholder}
-            autoFocus={field.autoFocus} />
+            {...input}
+            type={type}
+            placeholder={placeholder}
+            autoFocus={autoFocus} />
         <HelpBlock
             className="invalid-value">
-            {field.meta.touched && field.meta.error ? field.meta.error : ""}
+            {touched && error ? error : ""}
         </HelpBlock>
     </FormGroup>
 );
 
+const renderTextAreaField = ({componentClass, label, input, placeholder, rows}) => (
+    <FormGroup controlId={name}>
+        <ControlLabel>{label}</ControlLabel>
+        <FormControl
+            {...input}
+            componentClass={componentClass}
+            placeholder={placeholder}
+            rows={rows} />
+        {/*
+        <HelpBlock
+            className="invalid-value">
+            {field.meta.touched && field.meta.error ? field.meta.error : ""}
+        </HelpBlock>
+        */}
+    </FormGroup>
+);
 const EliquidAddForm = ({handleSubmit, pristine, submitting, invalid}) => {
     return (
         <div className="page-container">
@@ -38,7 +54,7 @@ const EliquidAddForm = ({handleSubmit, pristine, submitting, invalid}) => {
                         name="name"
                         label="Name"
                         className="input-container__input"
-                        component={renderField}
+                        component={renderInputField}
                         placeholder="enter name"
                         autoFocus="true"
                         />
@@ -48,7 +64,7 @@ const EliquidAddForm = ({handleSubmit, pristine, submitting, invalid}) => {
                         name="company"
                         label="Company"
                         className="input-container__input"
-                        component={renderField}
+                        component={renderInputField}
                         placeholder="enter company"
                         />
 
@@ -57,7 +73,7 @@ const EliquidAddForm = ({handleSubmit, pristine, submitting, invalid}) => {
                         name="category"
                         label="Category"
                         className="input-container__input"
-                        component={renderField}
+                        component={renderInputField}
                         placeholder="enter category"
                         />
 
@@ -66,7 +82,7 @@ const EliquidAddForm = ({handleSubmit, pristine, submitting, invalid}) => {
                         name="rating"
                         label="Rating"
                         className="input-container__input"
-                        component={renderField}
+                        component={renderInputField}
                         placeholder="enter rating"
                         />
 
@@ -75,7 +91,7 @@ const EliquidAddForm = ({handleSubmit, pristine, submitting, invalid}) => {
                         name="vgpg"
                         label="Vg/Pg (%)"
                         className="input-container__input"
-                        component={renderField}
+                        component={renderInputField}
                         placeholder="enter vg/pg"
                         />
 
@@ -84,19 +100,30 @@ const EliquidAddForm = ({handleSubmit, pristine, submitting, invalid}) => {
                         name="nic"
                         label="Nic (mg)"
                         className="input-container__input"
-                        component={renderField}
+                        component={renderInputField}
                         placeholder="enter nic"
                         />
 
                     <Field
-                        type="textarea"
+                        componentClass="textarea"
                         name="review"
                         label="Review"
                         className="label-container"
-                        component={renderField}
+                        component={renderTextAreaField}
+                        rows="5"
+                        placeholder="enter review"
                         />
+
                     <ButtonGroup>
-                        <Button type="submit" bsStyle="primary" disabled={pristine || submitting || invalid}>Submit</Button> <Button type="button" onClick={cancelHandler}>Cancel</Button>
+                        <Button
+                            type="submit"
+                            bsStyle="primary"
+                            disabled={pristine || submitting || invalid}
+                            >Submit</Button>
+                        <Button
+                            type="button"
+                            onClick={cancelHandler}
+                            >Cancel</Button>
                     </ButtonGroup>
                 </form>
             </Container>
