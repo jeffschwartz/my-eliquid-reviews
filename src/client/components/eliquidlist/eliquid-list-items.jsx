@@ -1,7 +1,9 @@
+import {dangerouslySetInnerHTML} from "react";
 import Grid from "react-bootstrap/lib/Grid";
 import Row from "react-bootstrap/lib/Row";
 import Col from "react-bootstrap/lib/Col";
 import Panel from "react-bootstrap/lib/Panel";
+import {replaceLineBreaksWithBreakTags} from "../../services/text-services";
 
 let spliceUp = (eLiquids) => {
     console.log("sliceUp called", eLiquids);
@@ -33,7 +35,7 @@ let makeRows = (rows, handleListItemClick) => {
                             Category: {item.category}<br/>
                             Compay: {item.company}<br/>
                             VG/PG: {item.vgpg}, NIC: {item.nic}<br/>
-                            Review: <p>{item.review}</p>
+                            Review: <p dangerouslySetInnerHTML={{ __html: replaceLineBreaksWithBreakTags(item.review) }}></p>
                         </Panel>
                     </Col>
                 )
