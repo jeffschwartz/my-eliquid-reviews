@@ -72,16 +72,16 @@ const validate = values => {
 };
 
 const postToDB = (data, dispatch) => {
-    dataService.add(data).then(function (result) {
+    return dataService.add(data).then(function (result) {
         console.log("eliquid added to database - result = ", result);
         dispatch(eLiquidsAddedNew(result.data.doc));
-        browserHistory.push("/");
     });
 };
 
 class EliquidAddContainer extends Component {
     handleSubmit (data) {
-        postToDB(data, this.props.dispatch);
+        postToDB(data, this.props.dispatch)
+            .then(() => browserHistory.push("/"));
     };
 
     render () {
