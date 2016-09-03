@@ -32,11 +32,12 @@
     "express": "^4.14.0",
     "mongodb": "^2.2.6",
     "react": "^15.2.1",
+    "react-bootstrap": "^0.30.3",
     "react-dom": "^15.2.1",
     "react-redux": "^4.4.5",
     "react-router": "^2.6.0",
     "redux": "^3.5.2",
-    "redux-form": "^6.0.0-rc.4",
+    "redux-form": "^6.0.2",
     "redux-thunk": "^2.1.0"
   },
   "devDependencies": {
