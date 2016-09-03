@@ -1,6 +1,7 @@
+import {Component} from "react";
+import {connect} from "react-redux";
 import EliquidAddForm from "./eliquid-add-form";
 import dataService from "../../services/eliquid-data-service";
-import store from "../../redux/store";
 import {eLiquidsAddedNew} from "../../redux/actions";
 import {browserHistory} from "react-router";
 
@@ -70,22 +71,26 @@ const validate = values => {
     return errors;
 };
 
-const postToDB = (data) => {
-    dataService.add(data).then(function (result) {
+const postToDB = (data, dispatch) => {
+    return dataService.add(data).then(function (result) {
         console.log("eliquid added to database - result = ", result);
-        store.dispatch(eLiquidsAddedNew(result.data.doc));
-        browserHistory.push("/");
+        dispatch(eLiquidsAddedNew(result.data.doc));
     });
 };
 
-const handleSubmit = data => {
-    postToDB(data);
+class EliquidAddContainer extends Component {
+    handleSubmit (data) {
+        postToDB(data, this.props.dispatch)
+            .then(() => browserHistory.push("/"));
+    };
+
+    render () {
+        return (
+            <EliquidAddForm
+                onSubmit={this.handleSubmit.bind(this) }
+                validate={validate}/>
+        );
+    }
 };
 
-const EliquidAddContainer = () => {
-    return (
-        <EliquidAddForm onSubmit={handleSubmit} validate={validate}/>
-    );
-};
-
-export default EliquidAddContainer;
+export default connect()(EliquidAddContainer);

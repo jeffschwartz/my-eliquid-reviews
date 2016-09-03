@@ -1,5 +1,6 @@
 import EliquidListHeader from "./eliquid-list-header";
 import EliquidListItems from "./eliquid-list-items";
+import Container from "../container/container";
 
 const EliquidList = ({
     orderBy,
@@ -9,16 +10,20 @@ const EliquidList = ({
     eLiquids
 }) => {
     return (
-        <div className="list">
+        <div className="page-container">
+            <Container>
+                <h1 className="page-title">Eliquids</h1>
+            </Container>
             <EliquidListHeader
                 defaultOrder={orderBy}
                 handleOnSortOrderChanged={handleOnSortOrderChanged}
                 handleAdd={handleAdd}
-             />
+                count={eLiquids.length}
+                />
             <EliquidListItems
                 eLiquids={eLiquids}
                 handleListItemClick={handleListItemClick}
-            />
+                />
         </div>
     );
 };

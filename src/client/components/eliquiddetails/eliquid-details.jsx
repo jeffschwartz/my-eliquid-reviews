@@ -1,35 +1,34 @@
-import {Component} from "react";
-
-class EliquidDetail extends Component {
-    render () {
-        let propValue = this.props.propValue;
-        let label = this.props.label;
-        return (
-            <div>
-                <span>{label}: </span><span>{propValue}</span>
-            </div>
-        );
-    }
-}
+import Container from "../container/container";
+import Panel from "react-bootstrap/lib/Panel";
+import Button from "react-bootstrap/lib/Button";
 
 const EliquidDetails = props => {
-    const {selectedEliquid} = props;
-    console.log("selectedEliquid", selectedEliquid);
+    const {selectedEliquid, handleDone} = props;
     return (
-            <div>
-                <h2>Eliquid Details</h2>
-                <div>
-                    <button>Edit</button> <button>Delete</button>
+        <div className="page-container">
+            <Container>
+                <h1 className="page-title">Details</h1>
+            </Container>
+            <Container>
+                <div className="list__header-container">
+                    <Panel
+                        id={selectedEliquid._id}
+                        header={<h1>{selectedEliquid.name}</h1>}>
+                        Rating: {selectedEliquid.rating}<br/>
+                        Category: {selectedEliquid.category}<br/>
+                        Compay: {selectedEliquid.company}<br/>
+                        VG/PG: {selectedEliquid.vgpg}, NIC: {selectedEliquid.nic}<br/>
+                        Review: <p>{selectedEliquid.review}</p><br/>
+                        <Button
+                            type="button"
+                            bsStyle="primary"
+                            onClick={handleDone}>
+                            Done
+                        </Button>
+                    </Panel>
                 </div>
-                <div>
-                    <EliquidDetail label="Name" propValue={selectedEliquid.name} />
-                    <EliquidDetail label="Company" propValue={selectedEliquid.company} />
-                    <EliquidDetail label="Category" propValue={selectedEliquid.category} />
-                    <EliquidDetail label="Rating" propValue={selectedEliquid.rating} />
-                    <EliquidDetail label="VGPG" propValue={selectedEliquid.vgpg} />
-                    <EliquidDetail label="Nic" propValue={selectedEliquid.nic} />
-                </div>
-            </div>
+            </Container>
+        </div>
     );
 };
 
