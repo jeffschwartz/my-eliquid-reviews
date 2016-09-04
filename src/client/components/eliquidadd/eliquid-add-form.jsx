@@ -43,7 +43,7 @@ const renderTextAreaField = ({componentClass, label, input, placeholder, rows}) 
 );
 const EliquidAddForm = ({handleSubmit, pristine, submitting, invalid}) => {
     return (
-        <div className="page-container">
+        <div className="page-container page-container--xtra-margin-bottom">
             <Container>
                 <h1 className="page-title">Add A New Eliquid</h1>
             </Container>
