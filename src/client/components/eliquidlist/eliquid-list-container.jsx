@@ -12,10 +12,8 @@ class EliquidListContainer extends Component {
     }
 
     handleListItemClick (id) {
-        this.props.dispatch(actions.eLiquidHasBeenSelected(id))
-        .then(() => {
-            browserHistory.push("/eliquid/" + id);
-        });
+        this.props.dispatch(actions.eLiquidSelectedId(id));
+        browserHistory.push("/eliquid/" + id);
     };
 
     render () {
