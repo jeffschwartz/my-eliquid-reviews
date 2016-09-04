@@ -135,3 +135,17 @@ h1.page-title {
     padding-bottom: 10px;
     border-bottom: solid 2px #eee;
 }
+
+.footer-container {
+    border-top: solid 2px #eee;
+    padding: 15px 0 25px 0;
+}
+
+.footer {
+    padding: 25px 10px;
+    background-color: #f8f8f8;
+}
+
+.footer__centered {
+    text-align: center;
+}
