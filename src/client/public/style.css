@@ -44,83 +44,9 @@ body {
     padding-top: 10px;
 }
 
-.list__header-container {
-    min-height: 2em;
-    line-height: 2em;
-    overflow: hidden;
-    padding-bottom: 10px;
-    border-bottom: solid 1px #eee;
+.page-container--xtra-margin-bottom {
+    margin-bottom: 15px;
 }
-
-.list__header {
-    display: inline-block;
-    margin: 0 20px 0 0;
-    font-size: 2em;
-}
-
-.list__header-button-container {
-    display: inline-block;
-}
-
-.list__header-button-container select {
-    margin: 0 10px;
-}
-
-.list__header-button {
-    margin-left: 20px;
-}
-
-.list__items-container {
-    margin-top: 10px;
-    width: 100%;
-}
-
-.list__items-header {
-    text-align: left;
-    text-decoration: underline;
-    font-weight: bold;
-    font-size: 1.1em;
-    padding: 5px 0;
-}
-
-.list__items-header--green {
-    color: green;
-}
-
-.list__item {
-    cursor: pointer;
-}
-
-.list__item:nth-child(odd) {
-    background-color: #efe;
-}
-.list__item-detail {
-    color: green;
-}
-
-/*button[type="submit" i] {
-    background-color: #285f8f;
-    color: #fff;
-    border: 1px solid #285f8f;
-}
-
-button[type="button" i] {
-    background-color: #f00;
-    color: #fff;
-    border: solid 1px #f00;
-}
-
-button[type="button" i], button[type="submit" i] {
-    font-size: 20px;
-    padding: 10px 15px;
-    border-radius: 5px;
-}
-
-button[type="submit" i][disabled] {
-    background-color: #ccc;
-    cursor: not-allowed;
-    margin-right: 10px;
-}*/
 
 button {
     margin-right: 10px;
