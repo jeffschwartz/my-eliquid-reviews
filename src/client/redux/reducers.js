@@ -10,8 +10,8 @@ export const eLiquidsReducer = (state = {orderBy: "name,a"}, action) => {
         return { ...state, orderBy: action.orderBy };
     case "ELIQUIDS_ADDED_NEW":
         return { ...state, eLiquids: state.eLiquids.concat(action.eLiquid) };
-    case "ELIQUID_SELECTED":
-        return { ...state, eLiquidSelected: action.eLiquidSelected };
+    case "ELIQUID_SELECTED_ID":
+        return { ...state, eLiquidSelectedId: action.id };
     default:
         return state;
     }

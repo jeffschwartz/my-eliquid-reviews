@@ -25,9 +25,9 @@ export const eLiquidListSortOrderSelected = orderBy => ({
     orderBy
 });
 
-export const eLiquidSelected = eLiquidSelected => ({
-    type: "ELIQUID_SELECTED",
-    eLiquidSelected
+export const eLiquidSelectedId = id => ({
+    type: "ELIQUID_SELECTED_ID",
+    id
 });
 
 // loads eLiquids asynchronously & then dispatches either
@@ -43,15 +43,5 @@ export const bootstrapEliquids = () => {
         },
             error => dispatch(eLiquidsFailure(error))
         );
-    };
-};
-
-export const eLiquidHasBeenSelected = (id) => {
-    return function (dispatch) {
-        return eliquidService.getById(id)
-        .then(result => {
-            dispatch(eLiquidSelected(result));
-            return result;
-        });
     };
 };

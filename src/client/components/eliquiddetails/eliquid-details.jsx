@@ -1,6 +1,7 @@
 import Container from "../container/container";
 import Panel from "react-bootstrap/lib/Panel";
 import Button from "react-bootstrap/lib/Button";
+import {replaceLineBreaksWithBreakTags} from "../../services/text-services";
 
 const EliquidDetails = props => {
     const {selectedEliquid, handleDone} = props;
@@ -17,7 +18,7 @@ const EliquidDetails = props => {
                     Category: {selectedEliquid.category}<br/>
                     Compay: {selectedEliquid.company}<br/>
                     VG/PG: {selectedEliquid.vgpg}, NIC: {selectedEliquid.nic}<br/>
-                    Review: <p>{selectedEliquid.review}</p><br/>
+                    Review: <p dangerouslySetInnerHTML={{ __html: replaceLineBreaksWithBreakTags(selectedEliquid.review) }}></p>
                     <Button
                         type="button"
                         bsStyle="primary"
