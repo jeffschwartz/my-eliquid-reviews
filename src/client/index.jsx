@@ -20,10 +20,10 @@ store.dispatch(actions.bootstrapEliquids()).then(() => {
             <Router history={browserHistory}>
                 <Route path="/" component={App}>
                     <IndexRoute component={EliquidListContainer} />
-                    <Route path="/eliquid/create" component={EliquidAddContainer} />
-                    <Route path="/eliquid/:id" component={EliquidDetailsContainer} />
-                    <Route path="/eliquid/:id/edit" component={EliquidEdit} />
-                    <Route path="/eliquid/:id/delete" component={EliquidDelete} />
+                    <Route path="eliquid/create" component={EliquidAddContainer} />
+                    <Route path="eliquid/:id" component={EliquidDetailsContainer} />
+                    <Route path="eliquid/:id/edit" component={EliquidEdit} />
+                    <Route path="eliquid/:id/delete" component={EliquidDelete} />
                 </Route>
             </Router>
         </Provider>
