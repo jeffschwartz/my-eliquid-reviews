@@ -16,6 +16,16 @@ class EliquidListContainer extends Component {
         browserHistory.push("/eliquid/" + id);
     };
 
+    componentDidMount () {
+        let selectedId = this.props.selectedEliquidId;
+        let y;
+        if (selectedId) {
+            y = document.getElementById(selectedId).parentElement.offsetTop;
+            // subtract 72 pixels to clear the fixed header whose height is 72 pixels
+            window.scrollTo(0, y - 72);
+        }
+    }
+
     render () {
         const {eLiquids, orderBy, onSortOrderChanged} = this.props;
 
@@ -33,7 +43,8 @@ class EliquidListContainer extends Component {
 
 const mapStateToProps = (state) => ({
     eLiquids: state.eLiquidsState.eLiquids,
-    orderBy: state.eLiquidsState.orderBy
+    orderBy: state.eLiquidsState.orderBy,
+    selectedEliquidId: state.eLiquidsState.eLiquidSelectedId
 });
 
 const mapDispatchToProps = (dispatch) => ({
