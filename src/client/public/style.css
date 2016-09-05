@@ -6,6 +6,50 @@ body {
     padding-top: 72px; /* needed when using fixed Navbar */
 }
 
+.loading {
+    position: absolute;
+    top: 0;
+}
+
+.loading__content {
+    display: table-cell;
+    height: 100vh;
+    width: 100vw;
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* transitions for mounting and dismounting components ==> */
+
+.initialmount-appear {
+  opacity: 0.01;
+}
+
+.initialmount-appear.initialmount-appear-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.initialmount-enter {
+  opacity: 0.01;
+}
+
+.initialmount-enter.initialmount-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.initialmount-leave {
+  opacity: 1;
+}
+
+.initialmount-leave.initialmount-leave-active {
+  opacity: 0.01;
+  transition: opacity 500ms ease-in;
+}
+
+/* <== transitions for mounting and dismounting components */
+
 .nav {
     text-decoration: none;
 }
