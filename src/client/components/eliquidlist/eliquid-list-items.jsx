@@ -28,7 +28,7 @@ let makeRows = (rows, handleListItemClick) => {
                         {console.log(item.name) }
                         <Panel
                             id={item._id}
-                            key={i}
+                            key={item._id}
                             header={<h1>{item.name}</h1>}
                             onClick={() => handleListItemClick(item._id) } >
                             Rating: {item.rating}<br/>
