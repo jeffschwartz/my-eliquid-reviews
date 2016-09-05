@@ -23,6 +23,7 @@ class EliquidListContainer extends Component {
             y = document.getElementById(selectedId).parentElement.offsetTop;
             // subtract 72 pixels to clear the fixed header whose height is 72 pixels
             window.scrollTo(0, y - 72);
+            // TODO(JS): dispatch an action that clears out the selected item's state
         }
     }
 
